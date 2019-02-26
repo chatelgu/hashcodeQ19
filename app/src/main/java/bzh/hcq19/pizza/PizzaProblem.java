@@ -1,11 +1,11 @@
-package lannion.soft.qualif19.pizza;
+package bzh.hcq19.pizza;
 
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import lannion.soft.qualif19.helper.Problem;
+import bzh.hcq19.helper.Problem;
 
 public class PizzaProblem extends Problem {
 

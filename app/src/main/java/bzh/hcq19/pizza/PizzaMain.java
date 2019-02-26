@@ -1,4 +1,4 @@
-package lannion.soft.qualif19.pizza;
+package bzh.hcq19.pizza;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,6 +1,6 @@
-package lannion.soft.qualif19;
+package bzh.hcq19;
 
-import lannion.soft.qualif19.helper.Problem;
+import bzh.hcq19.helper.Problem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

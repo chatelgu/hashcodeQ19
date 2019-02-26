@@ -1,4 +1,4 @@
-package lannion.soft.qualif19.helper;
+package bzh.hcq19.helper;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

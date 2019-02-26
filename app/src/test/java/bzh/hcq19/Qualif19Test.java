@@ -1,4 +1,4 @@
-package lannion.soft.qualif19;
+package bzh.hcq19;
 
 import org.junit.Test;
 

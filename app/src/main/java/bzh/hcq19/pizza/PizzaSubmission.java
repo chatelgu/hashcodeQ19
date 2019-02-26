@@ -1,6 +1,6 @@
-package lannion.soft.qualif19.pizza;
+package bzh.hcq19.pizza;
 
-import lannion.soft.qualif19.helper.Submission;
+import bzh.hcq19.helper.Submission;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;

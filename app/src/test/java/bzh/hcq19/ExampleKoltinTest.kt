@@ -1,4 +1,4 @@
-package lannion.soft.qualif19
+package bzh.hcq19
 
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
