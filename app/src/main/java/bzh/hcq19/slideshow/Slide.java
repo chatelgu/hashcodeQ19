@@ -45,8 +45,7 @@ public class Slide extends Submission.Entry {
             tags.addAll(photo2.tags);
             return tags;
         } else {
-            HashSet<String> tags = new HashSet<>();
-            tags.addAll(photo2.tags);
+            HashSet<String> tags = new HashSet<>(photo1.tags);
             return tags;
         }
     }
