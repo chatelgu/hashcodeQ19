@@ -10,6 +10,7 @@ public class Photo {
 
         String val;
 
+
     }
 
     public int index;
