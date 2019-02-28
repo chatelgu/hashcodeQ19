@@ -2,6 +2,7 @@ package bzh.hcq19;
 
 import bzh.hcq19.helper.Problem;
 import bzh.hcq19.helper.Submission;
+import bzh.hcq19.slideshow.Slide;
 import bzh.hcq19.slideshow.SlideShowProblem;
 import bzh.hcq19.slideshow.SlideshowSubmission;
 import org.slf4j.Logger;
@@ -17,20 +18,19 @@ public class Qualif19 {
 
     public Qualif19() {
         logger.debug("Hello HashCode !");
-        //parseSimpleProblem();
-        solveSimpleProblem();
+        parseSimpleProblem();
     }
 
     public void parseSimpleProblem() {
         SlideShowProblem pb = new SlideShowProblem("a_example.txt");
         logger.debug("pb "+pb);
         pb.prettyPrint();
-    }
-
-    public void solveSimpleProblem() {
         SlideshowSubmission sol = new SlideshowSubmission();
+        sol.entries.add(new Slide(pb.allPhotos.get(0), null));
+        sol.entries.add(new Slide(pb.allPhotos.get(3), null));
+        sol.entries.add(new Slide(pb.allPhotos.get(1), pb.allPhotos.get(2)));
         logger.debug("simple score : "+sol.score());
-        sol.writeTo("simple");
+        sol.writeTo("a_example");
     }
 
 

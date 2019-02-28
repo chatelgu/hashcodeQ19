@@ -1,7 +1,6 @@
 package bzh.hcq19.slideshow;
 
 import bzh.hcq19.helper.Problem;
-import bzh.hcq19.pizza.PizzaProblem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,8 +18,8 @@ public class SlideShowProblem extends Problem {
         super(filename);
     }
 
-    ArrayList<Photo> allPhotos;
-    Set<String> allTag;
+    public ArrayList<Photo> allPhotos;
+    public Set<String> allTag;
 
     @Override
     protected void parseFile(InputStream file) throws Exception {
