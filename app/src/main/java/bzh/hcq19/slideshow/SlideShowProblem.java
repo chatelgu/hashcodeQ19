@@ -7,7 +7,9 @@ import org.slf4j.LoggerFactory;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class SlideShowProblem extends Problem {
 
@@ -18,6 +20,7 @@ public class SlideShowProblem extends Problem {
     }
 
     ArrayList<Photo> allPhotos;
+    Set<String> allTag;
 
     @Override
     protected void parseFile(InputStream file) throws Exception {
@@ -26,6 +29,7 @@ public class SlideShowProblem extends Problem {
         int nbPhoto = scanner.nextInt();
 
         allPhotos = new ArrayList<>();
+        allTag = new HashSet<>();
 
         scanner.nextLine(); // skiping end of line
 
@@ -38,6 +42,7 @@ public class SlideShowProblem extends Problem {
             onePhoto.setOrientation(elems[0].equals("V") ? Photo.Orientation.VERTICAL : Photo.Orientation.HORIZONTAL);
             for(int j=2; j<elems.length; j++) {
                 onePhoto.addTag(elems[j]);
+                allTag.add(elems[j]);
             }
             allPhotos.add(onePhoto);
         }
@@ -49,7 +54,9 @@ public class SlideShowProblem extends Problem {
     }
 
     public void prettyPrint() {
-        // dump the problem to be sure we have parsed it well
+        for(int i=0; i<allPhotos.size() && i < 20; i++) {
+            logger.info(allPhotos.get(i).toString());
+        }
     }
 
 }

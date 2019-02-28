@@ -50,4 +50,17 @@ public class Photo {
     public void setIndex(int index) {
         this.index = index;
     }
+
+    @Override
+    public String toString() {
+        String result = "Photo{" +
+                "index=" + index +
+                ", orientation=" + orientation +
+                ", tags=";
+
+        for(String tag : tags) {
+            result += tag+" ";
+        }
+        return result;
+    }
 }
