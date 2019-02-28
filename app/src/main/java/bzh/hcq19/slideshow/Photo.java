@@ -53,14 +53,13 @@ public class Photo {
 
     @Override
     public String toString() {
-        String result = "Photo{" +
-                "index=" + index +
-                ", orientation=" + orientation +
-                ", tags=";
+        String result = "Photo{" + index +
+                ", " + orientation +
+                ", ";
 
         for(String tag : tags) {
             result += tag+" ";
         }
-        return result;
+        return result+"}";
     }
 }
