@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class GuillaumeDummySolver {
@@ -34,6 +35,9 @@ public class GuillaumeDummySolver {
         logger.debug("nb vertical : "+verticals.size());
         logger.debug("nb horizontal : "+horizontals.size());
 
+        Collections.shuffle(verticals);
+        Collections.shuffle(horizontals);
+
         List<Slide> slides_h = new ArrayList<>();
         horizontals.forEach(photo -> slides_h.add(new Slide(photo, null)));
 
@@ -44,6 +48,8 @@ public class GuillaumeDummySolver {
 
         slides_h.addAll(slides_v);
 
+
+        Collections.shuffle(slides_h);
         sub = slides_h;
     }
 
