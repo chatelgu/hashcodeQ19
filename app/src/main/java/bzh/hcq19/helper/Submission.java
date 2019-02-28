@@ -26,7 +26,7 @@ public abstract class Submission {
 
     public void writeTo(String filename) {
         try {
-            File file = new File(filename+"___"+getTimestampExt()+"___"+score()+".sol");
+            File file = new File(filename+"___"+score()+"___"+getTimestampExt()+".sol");
             if (file.exists()) {
                 file.delete();
             }

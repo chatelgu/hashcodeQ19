@@ -1,11 +1,13 @@
 package bzh.hcq19;
 
-import bzh.hcq19.helper.Submission;
 import bzh.hcq19.slideshow.Slide;
 import bzh.hcq19.slideshow.SlideShowProblem;
 import bzh.hcq19.slideshow.SlideshowSubmission;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Qualif19 {
 
@@ -23,26 +25,41 @@ public class Qualif19 {
     // to solve everything
     public void solveAll() {
         solve("a_example", this::parseSimpleProblem);
-        solve("b_lovely_landscapes", this::dummy);
-        solve("c_memorable_moments", this::dummy);
-        solve("d_pet_pictures", this::dummy);
-        solve("e_shiny_selfies", this::dummy);
+        solve("b_lovely_landscapes", this::lovely);
+        solve("c_memorable_moments", this::force);
+        solve("d_pet_pictures", this::force);
+        solve("e_shiny_selfies", this::force);
     }
 
-    public SlideshowSubmission dummy(SlideShowProblem pb) {
-        GuillaumeDummySolver dum = new GuillaumeDummySolver(pb);
-        SlideshowSubmission sub = new SlideshowSubmission();
-        sub.entries.addAll(dum.getSolution());
+
+    public SlideshowSubmission force(SlideShowProblem pb) {
+        GuillaumeLessDummySolver dum = new GuillaumeLessDummySolver(pb);
+        SlideshowSubmission sub = new SlideshowSubmission(dum.getForce());
+        return sub;
+    }
+
+
+    public SlideshowSubmission reallydummy(SlideShowProblem pb) {
+        GuillaumeLessDummySolver dum = new GuillaumeLessDummySolver(pb);
+        SlideshowSubmission sub = new SlideshowSubmission(dum.getReallyDummy());
+        return sub;
+    }
+
+
+    public SlideshowSubmission lovely(SlideShowProblem pb) {
+        GuillaumeLessDummySolver dum = new GuillaumeLessDummySolver(pb);
+        SlideshowSubmission sub = new SlideshowSubmission(dum.getLovely());
         return sub;
     }
 
     public SlideshowSubmission parseSimpleProblem(SlideShowProblem pb) {
-        logger.debug("pb "+pb);
+        logger.debug(pb.toString());
         pb.prettyPrint();
-        SlideshowSubmission sol = new SlideshowSubmission();
-        sol.entries.add(new Slide(pb.allPhotos.get(0), null));
-        sol.entries.add(new Slide(pb.allPhotos.get(3), null));
-        sol.entries.add(new Slide(pb.allPhotos.get(1), pb.allPhotos.get(2)));
+        List<Slide> entries = new ArrayList<>();
+        entries.add(new Slide(pb.allPhotos.get(0), null));
+        entries.add(new Slide(pb.allPhotos.get(3), null));
+        entries.add(new Slide(pb.allPhotos.get(1), pb.allPhotos.get(2)));
+        SlideshowSubmission sol = new SlideshowSubmission(entries);
         logger.debug("simple score : "+sol.score());
         return sol;
     }
@@ -53,8 +70,13 @@ public class Qualif19 {
 
     public void solve(String filename, Solver solver) {
         SlideShowProblem pb = new SlideShowProblem(filename + ".txt");
-        Submission sub = solver.solve(pb);
+        logger.debug(pb.toString());
+        SlideshowSubmission sub = solver.solve(pb);
         logger.debug(filename+" score : " + sub.score());
-        sub.writeTo(filename);
+        if (sub.isValid()) {
+            sub.writeTo(filename);
+        } else {
+            logger.error("invalid submission");
+        }
     }
 }

@@ -49,7 +49,7 @@ public class SlideShowProblem extends Problem {
 
     @Override
     public String toString() {
-        return "UnknowProblem";
+        return super.toString()+" "+allPhotos.size()+" photos with "+allTag.size()+" tags";
     }
 
     public void prettyPrint() {

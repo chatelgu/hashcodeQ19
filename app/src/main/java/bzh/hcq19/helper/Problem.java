@@ -9,8 +9,10 @@ public abstract class Problem {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
+    private String filename;
 
     public Problem(String filename) {
+        this.filename = filename;
         logger.debug("parse from file "+filename);
         ClassLoader loader = ClassLoader.getSystemClassLoader();
         InputStream file = loader.getResourceAsStream(filename);
@@ -23,5 +25,9 @@ public abstract class Problem {
     }
 
     protected abstract void parseFile(InputStream file) throws Exception;
-    
+
+    @Override
+    public String toString() {
+        return "Problem : "+filename;
+    }
 }
