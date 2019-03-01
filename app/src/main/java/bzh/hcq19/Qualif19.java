@@ -19,16 +19,30 @@ public class Qualif19 {
 
     public Qualif19() {
         logger.debug("Hello HashCode !");
-        solveAll();
+        showAll();
+        //solveAll();
+    }
+
+    public void showAll() {
+        String pbs[] = new String[] {
+                "a_example.txt",
+                "b_lovely_landscapes.txt",
+                "c_memorable_moments.txt",
+                "d_pet_pictures.txt",
+                "e_shiny_selfies.txt"};
+        for (String pb : pbs) {
+            SlideShowProblem problem = new SlideShowProblem(pb);
+            logger.debug("pb : "+problem);
+        }
     }
 
     // to solve everything
     public void solveAll() {
-        solve("a_example", this::parseSimpleProblem);
-        solve("b_lovely_landscapes", this::lovely);
+        //solve("a_example", this::parseSimpleProblem);
+        //solve("b_lovely_landscapes", this::lovely);
         solve("c_memorable_moments", this::force);
-        solve("d_pet_pictures", this::force);
-        solve("e_shiny_selfies", this::force);
+        //solve("d_pet_pictures", this::force);
+        //solve("e_shiny_selfies", this::force);
     }
 
 

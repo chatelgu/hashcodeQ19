@@ -1,8 +1,8 @@
 package bzh.hcq19;
 
-import bzh.hcq19.helper.Problem;
 import bzh.hcq19.helper.Submission;
-import bzh.hcq19.slideshow.*;
+import bzh.hcq19.slideshow.SlideShowProblem;
+import bzh.hcq19.slideshow.SlideshowSubmission;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,8 +40,7 @@ public class QualifSamuel {
 
     public SlideshowSubmission random(SlideShowProblem pb) {
         RandomSolver dum = new RandomSolver(pb);
-        SlideshowSubmission sub = new SlideshowSubmission();
-        sub.entries.addAll(dum.getSolution());
+        SlideshowSubmission sub = new SlideshowSubmission(dum.getSolution());
         return sub;
     }
 
