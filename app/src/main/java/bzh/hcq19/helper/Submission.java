@@ -8,9 +8,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.SimpleTimeZone;
 
 public abstract class Submission {
 
@@ -26,11 +28,20 @@ public abstract class Submission {
 
     public void writeTo(String filename) {
         try {
-            File file = new File(filename+"___"+score()+"___"+getTimestampExt()+".sol");
+            String fileName = "./"+filename+"___"+score()+"___"+getTimestampExt()+".sol";
+            File file = new File(fileName);
             if (file.exists()) {
                 file.delete();
             }
+
+            System.out.println("Filename = "+fileName);
+            System.out.println("file = "+file);
+
+
             file.createNewFile();
+
+
+
             OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(file));
             writeHeader(writer);
             writeEntries(writer);
@@ -42,8 +53,8 @@ public abstract class Submission {
 
     private String getTimestampExt() {
         Date now = new Date(System.currentTimeMillis());
-        DateFormat timeInstance = DateFormat.getTimeInstance(DateFormat.MEDIUM, Locale.FRANCE);
-        return timeInstance.format(now);
+        SimpleDateFormat formater = new SimpleDateFormat("H-mm-ss");
+        return formater.format(now);
     }
 
     // if any needed, write the Submission header

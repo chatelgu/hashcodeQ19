@@ -28,15 +28,23 @@ public class QualifSamuel {
 
     // to solve everything
     public void solveAll() {
-        solve("a_example", this::random);
-        solve("b_lovely_landscapes", this::random);
-        solve("c_memorable_moments", this::random);
-        solve("d_pet_pictures", this::random);
-        solve("e_shiny_selfies", this::random);
+        solve("a_example", this::genetic);
+        solve("b_lovely_landscapes", this::genetic);
+        solve("c_memorable_moments", this::genetic);
+        solve("d_pet_pictures", this::genetic);
+        solve("e_shiny_selfies", this::genetic);
 
         logger.debug("score total : " + total);
 
     }
+
+
+    public SlideshowSubmission genetic(SlideShowProblem pb) {
+        GeneticSolver dum = new GeneticSolver(pb);
+        SlideshowSubmission sub = new SlideshowSubmission(dum.getSolution());
+        return sub;
+    }
+
 
     public SlideshowSubmission random(SlideShowProblem pb) {
         RandomSolver dum = new RandomSolver(pb);

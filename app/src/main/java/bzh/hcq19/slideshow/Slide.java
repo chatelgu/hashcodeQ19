@@ -10,8 +10,8 @@ import java.util.Set;
 public class Slide extends Submission.Entry {
     // store the data for a row of the submission
 
-    Photo photo1;
-    Photo photo2;
+    public Photo photo1;
+    public Photo photo2;
 
     public Slide(Photo photo1, Photo photo2) {
         this.photo1 = photo1;
