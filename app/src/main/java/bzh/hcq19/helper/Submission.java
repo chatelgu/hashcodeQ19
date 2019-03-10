@@ -34,13 +34,7 @@ public abstract class Submission {
                 file.delete();
             }
 
-            System.out.println("Filename = "+fileName);
-            System.out.println("file = "+file);
-
-
             file.createNewFile();
-
-
 
             OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(file));
             writeHeader(writer);
